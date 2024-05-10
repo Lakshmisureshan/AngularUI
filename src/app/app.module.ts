@@ -7,9 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { CustComponenetComponent } from './Components/CustomerComponent/cust-componenet/cust-componenet.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustComponenetComponent
   ],
   imports: [
     BrowserModule,

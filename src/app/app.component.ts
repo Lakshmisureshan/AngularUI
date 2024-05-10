@@ -7,9 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TradingUI';
+  sidebarOpen1=true;
 
 
+  toggletoolBar(){
 
+    this.sidebarOpen1 =this.sidebarOpen1? false:true;
 
+  }
 
 }

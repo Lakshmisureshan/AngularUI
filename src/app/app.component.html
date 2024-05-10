@@ -1,5 +1,5 @@
 <mat-toolbar class="header-toolbar">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button class="example-icon"  (click)="toggletoolBar()"    aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
     <span class="myapp">My App</span>
@@ -13,7 +13,7 @@
   </mat-toolbar>
 
   <mat-drawer-container class="content-container" autosize>
-    <mat-drawer  class="sidebar" mode="side" opened="true">
+    <mat-drawer  class="sidebar" mode="side" [opened]="sidebarOpen1">
 Side Bar
 </mat-drawer>
 <mat-drawer-content class="main-content">
