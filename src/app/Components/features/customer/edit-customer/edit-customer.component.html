@@ -1,7 +1,8 @@
 <div class="container">
-    <h1 class="mt-3">Add Customer</h1>
+    <h1 class="mt-3">Edit Customer</h1>
+<ng-container  *ngIf="customer">
 
-    <form   [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+    <form   #form="ngForm" (ngSubmit)="onFormSubmit()">
         <div class="mt-2 mb-5">
           <div class="mt-3">
             <label for="title" class="form-label">Name</label>
@@ -9,13 +10,9 @@
             id="name"
             name="name"
             class="form-control"
-            formControlName="name">
+            [(ngModel)]="customer.name">
           </div>
-          <div *ngIf="userForm.get('name')?.invalid && (userForm.get('name')?.touched || submitted)" class="error-message">
-           Name is required
-          </div>
-
-
+       
     
           <div class="mt-3">
             <label for="country" class="form-label">Country</label>
@@ -23,19 +20,9 @@
             id="country"
             name="country"
             class="form-control"
-            formControlName="country">
+            [(ngModel)]="customer.country">
           </div>
-          <div *ngIf="userForm.get('country')?.invalid && (userForm.get('country')?.touched || submitted)" class="error-message">
-            Country Name is required
-          </div>
-
-
-
-
-
-
-
-
+      
 
           <div class="mt-3">
             <label for="address" class="form-label">Address</label>
@@ -43,11 +30,9 @@
             id="address"
             name="address"
             class="form-control"
-            formControlName="address">
+            [(ngModel)]="customer.address">
           </div>
-          <div *ngIf="userForm.get('address')?.invalid && (userForm.get('address')?.touched || submitted)" class="error-message">
-            Address is required
-          </div>
+       
 
           <div class="mt-3">
             <label for="urlHandle" class="form-label">Phone No</label>
@@ -55,12 +40,9 @@
             id="phoneNo"
             name="phoneNo"
             class="form-control"
-            formControlName="phoneNo">
+            [(ngModel)]="customer.phoneNo">
           </div>
-          <div *ngIf="userForm.get('phoneNo')?.invalid && (userForm.get('phoneNo')?.touched || submitted)" class="error-message">
-            Phone No is required
-          </div>
-
+        
 
           <div class="mt-3">
             <label for="emailID" class="form-label">Email</label>
@@ -68,11 +50,9 @@
             id="emailID"
             name="emailID"
             class="form-control"
-            formControlName="emailID">
+            [(ngModel)]="customer.emailID">
           </div>
-          <div *ngIf="userForm.get('emailID')?.invalid && (userForm.get('emailID')?.touched || submitted)" class="error-message">
-            Email ID is required
-          </div>
+        
 
           <div class="mt-3">
             <button type="submit" class="btn btn-primary" >Save</button>
@@ -102,4 +82,7 @@
 
 
           </form>
+
+</ng-container >
+ 
 </div>

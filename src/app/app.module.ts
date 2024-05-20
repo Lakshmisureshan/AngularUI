@@ -14,7 +14,9 @@ import { ListCustomerComponent } from './Components/features/customer/list-custo
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AddCustomerComponent } from './Components/features/customer/add-customer/add-customer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListSupplierComponent } from './Components/features/supplier/list-supplier/list-supplier.component';
+import { EditCustomerComponent } from './Components/features/customer/edit-customer/edit-customer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +24,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
       ListCustomerComponent,
       AddCustomerComponent,
+      ListSupplierComponent,
+      EditCustomerComponent,
     
   ],
   imports: [
@@ -33,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     MatSidenavModule,MatMenuModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
