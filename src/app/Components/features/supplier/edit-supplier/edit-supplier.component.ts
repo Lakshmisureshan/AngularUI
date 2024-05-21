@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { SupplierService } from '../Services/supplier.service';
 import { Supplier } from '../Model/supplier.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UpdateSupplier } from '../Model/updatesupplier.model';
 
 @Component({
   selector: 'app-edit-supplier',
@@ -13,11 +14,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EditSupplierComponent  implements OnInit {
   id :string |null =null;
   paramassubstription ?:Subscription;
-  updatecustomersubscription ?: Subscription;
+  updatesuppliersubscription ?: Subscription;
   supplier ?:Supplier;
   userForm!: FormGroup;
   submitted = false;
-constructor(private route: ActivatedRoute,private supplierservice:SupplierService,private fb: FormBuilder )
+constructor(private route: ActivatedRoute,private supplierservice:SupplierService,private fb: FormBuilder,private router:Router )
 {
   this.userForm = this.fb.group({
     name: ['', Validators.required],
@@ -59,9 +60,32 @@ next :(response) =>{
 }
 })
 }
-  onFormSubmit(){
+onFormSubmit(): void {
+  this.submitted = true;
 
+  if (this.userForm.valid) {
+
+if (this.supplier && this.id)
+{
+
+var updatesupplier :UpdateSupplier={
+  name: this.userForm.value.name,
+  address: this.userForm.value.address,
+  country: this.userForm.value.country,
+  emailID: this.userForm.value.emailID,
+  phoneNo: this.userForm.value.phoneNo
+};
+console.log(updatesupplier);
+this.updatesuppliersubscription=this.supplierservice.updatesupplier(this.id, updatesupplier).subscribe({
+next : (response)=>{
+this.router.navigateByUrl('/admin/supplier');
+}
+});
+}
 
   }
 
+
+
+}
 }
