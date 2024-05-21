@@ -15,7 +15,7 @@ export class CustomerService {
 
 getallCustomers() :Observable<Customer[]>
 {
-  alert("dfgdfgdfgdg");
+ 
 return this.http.get<Customer[]>('https://localhost:7124/api/Customer');
 
 }

@@ -1,9 +1,35 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Supplier } from '../Model/supplier.model';
+import { AddSupplier } from '../Model/addsupplier.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SupplierService {
+  constructor(private http: HttpClient) {
 
-  constructor() { }
+
+}
+
+
+getAllsuppliers() :Observable<Supplier[]>
+{
+  return this.http.get<Supplier[]>('https://localhost:7124/api/Supplier');
+  }
+
+getSupplierById(id :string):Observable<Supplier>
+{
+  return this.http.get<Supplier>(`https://localhost:7124/api/Supplier/GetSupplierrById/${id}`);
+}
+
+
+
+createsupplier(data: AddSupplier) : Observable<Supplier> {
+  return this.http.post<Supplier>('https://localhost:7124/api/Supplier/Supplier', data);
+}
+
+
+
 }

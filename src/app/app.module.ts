@@ -17,6 +17,8 @@ import { AddCustomerComponent } from './Components/features/customer/add-custome
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListSupplierComponent } from './Components/features/supplier/list-supplier/list-supplier.component';
 import { EditCustomerComponent } from './Components/features/customer/edit-customer/edit-customer.component';
+import { EditSupplierComponent } from './Components/features/supplier/edit-supplier/edit-supplier.component';
+import { AddSupplierComponent } from './Components/features/supplier/add-supplier/add-supplier.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,8 @@ import { EditCustomerComponent } from './Components/features/customer/edit-custo
       AddCustomerComponent,
       ListSupplierComponent,
       EditCustomerComponent,
+      EditSupplierComponent,
+      AddSupplierComponent,
     
   ],
   imports: [
