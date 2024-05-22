@@ -6,6 +6,7 @@ import { EditCustomerComponent } from './Components/features/customer/edit-custo
 import { ListSupplierComponent } from './Components/features/supplier/list-supplier/list-supplier.component';
 import { EditSupplierComponent } from './Components/features/supplier/edit-supplier/edit-supplier.component';
 import { AddSupplierComponent } from './Components/features/supplier/add-supplier/add-supplier.component';
+import { LoginComponent } from './Components/features/auth/login/login.component';
 const routes: Routes = [
 {
   path :'admin/categories',
@@ -15,6 +16,15 @@ const routes: Routes = [
   path :'admin/customer/add',
   component: AddCustomerComponent
  },
+{
+ path :'login',
+ component:LoginComponent
+ 
+ 
+  },
+
+
+
 
  {
   path :'Admin/customer/:id',

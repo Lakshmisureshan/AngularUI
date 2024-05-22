@@ -19,6 +19,8 @@ import { ListSupplierComponent } from './Components/features/supplier/list-suppl
 import { EditCustomerComponent } from './Components/features/customer/edit-customer/edit-customer.component';
 import { EditSupplierComponent } from './Components/features/supplier/edit-supplier/edit-supplier.component';
 import { AddSupplierComponent } from './Components/features/supplier/add-supplier/add-supplier.component';
+import { NewRequirementComponent } from './Components/features/new-requirement/new-requirement.component';
+import { LoginComponent } from './Components/features/auth/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,8 @@ import { AddSupplierComponent } from './Components/features/supplier/add-supplie
       EditCustomerComponent,
       EditSupplierComponent,
       AddSupplierComponent,
+      NewRequirementComponent,
+      LoginComponent,
     
   ],
   imports: [
