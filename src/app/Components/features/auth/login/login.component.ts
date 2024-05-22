@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginRequest } from '../Models/login-request.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent {
 
   userForm: FormGroup;
   model:LoginRequest;
-  constructor( private fb: FormBuilder)
+  constructor( private fb: FormBuilder, private authservice:AuthService)
   {
 
 
@@ -34,6 +35,11 @@ this.model ={
     this.model.email = this.userForm.value.email;
     this.model.password = this.userForm.value.password;
     console.log(this.model);
+
+    this.authservice.login(this.model).subscribe({
+
+      
+    })
   }
 
 
