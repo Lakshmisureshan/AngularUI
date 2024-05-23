@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { LoginRequest } from '../Models/login-request.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ export class LoginComponent {
 
   userForm: FormGroup;
   model:LoginRequest;
-  constructor( private fb: FormBuilder, private authservice:AuthService)
+  constructor( private fb: FormBuilder, private authservice:AuthService, private cookieservice:CookieService, private router:Router)
   {
 
 
@@ -38,7 +40,15 @@ this.model ={
 
     this.authservice.login(this.model).subscribe({
 
-      
+      next :(response)=>{
+//alert(response);
+console.log(response);
+this.cookieservice.set('Authorization', `Bearer ${response.token}`,
+  undefined, '/', undefined, true , 'Strict'
+);
+
+this.router.navigateByUrl('/');
+      }
     })
   }
 

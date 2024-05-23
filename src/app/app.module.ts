@@ -21,6 +21,8 @@ import { EditSupplierComponent } from './Components/features/supplier/edit-suppl
 import { AddSupplierComponent } from './Components/features/supplier/add-supplier/add-supplier.component';
 import { NewRequirementComponent } from './Components/features/new-requirement/new-requirement.component';
 import { LoginComponent } from './Components/features/auth/login/login.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,8 @@ import { LoginComponent } from './Components/features/auth/login/login.component
     MatSidenavModule,MatMenuModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

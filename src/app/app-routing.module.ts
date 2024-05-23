@@ -7,6 +7,7 @@ import { ListSupplierComponent } from './Components/features/supplier/list-suppl
 import { EditSupplierComponent } from './Components/features/supplier/edit-supplier/edit-supplier.component';
 import { AddSupplierComponent } from './Components/features/supplier/add-supplier/add-supplier.component';
 import { LoginComponent } from './Components/features/auth/login/login.component';
+import { NewRequirementComponent } from './Components/features/new-requirement/new-requirement.component';
 const routes: Routes = [
 {
   path :'admin/categories',
@@ -22,8 +23,16 @@ const routes: Routes = [
  
  
   },
+{
 
+  path :'admin/newrequirement',
+  component:NewRequirementComponent
+},
 
+  
+  
+   
+ 
 
 
  {
