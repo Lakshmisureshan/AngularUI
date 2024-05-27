@@ -8,6 +8,7 @@ import { EditSupplierComponent } from './Components/features/supplier/edit-suppl
 import { AddSupplierComponent } from './Components/features/supplier/add-supplier/add-supplier.component';
 import { LoginComponent } from './Components/features/auth/login/login.component';
 import { NewRequirementComponent } from './Components/features/new-requirement/new-requirement.component';
+
 const routes: Routes = [
 {
   path :'admin/categories',
@@ -17,6 +18,17 @@ const routes: Routes = [
   path :'admin/customer/add',
   component: AddCustomerComponent
  },
+
+
+
+
+
+
+
+
+
+
+
 {
  path :'login',
  component:LoginComponent

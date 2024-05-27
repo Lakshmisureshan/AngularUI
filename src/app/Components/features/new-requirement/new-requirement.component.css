@@ -1,0 +1,40 @@
+.ng-select.custom {
+    border:1px solid rgba(0, 0, 0, 0.15);
+    height: 38px;
+    border-radius: 0.25rem;
+    background-color: white;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    font-family: sans-serif;
+    
+}
+::ng-deep .ng-select.custom .ng-dropdown-panel {
+    margin-top: 10px;
+    left: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+    background-color: #F7F59F;
+  }
+
+  .ag-theme-acmecorp {
+    --ag-header-background-color: #f4f4f4;
+    --ag-header-foreground-color: #333;
+    --ag-odd-row-background-color: #f9f9f9;
+    --ag-even-row-background-color: #fff;
+    --ag-row-hover-color: #e1e1e1;
+    --ag-border-color: #ccc;
+  }
+  
+  .ag-theme-acmecorp .ag-header {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .ag-theme-acmecorp .ag-row {
+    font-size: 14px;
+  }
+  
+  .ag-theme-acmecorp .ag-cell {
+    padding: 10px;
+  }

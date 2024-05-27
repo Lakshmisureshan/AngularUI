@@ -10,33 +10,69 @@
               class="form-control"
               formControlName="refno">
            </div>
+           <div *ngIf="userForm.get('refno')?.invalid && (userForm.get('refno')?.touched || submitted)" class="error-message">
+            Refno is required
            </div>
 
-
-        
-          <!---- <div class="mt-3">
-            <select [(ngModel)]="selectedCustomerId" class="form-control">
-             <option value="" disabled selected>Select Customer</option>
-             <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.name }}</option>
-           </select>
-         </div>-->
-
-
-
+         <div class="mt-3">
+          <label for="date" class="form-label">Date:</label>
+          <input type="Date"
+          id="date"
+          name="date"
+          class="form-control"
+          formControlName="Date">
+        </div>
+        <div *ngIf="userForm.get('Date')?.invalid && (userForm.get('Date')?.touched || submitted)" class="error-message">
+          Date is required
+         </div>
 
         <div class="mt-3">
-            <ng-select [(ngModel)]="selectedCustomerId" [items]="customers" bindValue="id" bindLabel="name"   (ngModelChange)="onCustomerIdChange($event)"
-            [placeholder]="placeholder" [searchable]="true" class="form-control">
+          <label for="customer" class="form-label">Customer:</label>
+            <ng-select [(ngModel)]="selectedCustomerId" [items]="customers" bindValue="id" bindLabel="name"   (change)="onCustomerIdChange($event)"
+            [placeholder]="placeholder" [searchable]="true" class="custom" [compareWith]="compareFn" formControlName="selectedCustomerId">
             </ng-select>
+          </div>
+          <div *ngIf="userForm.get('selectedCustomerId')?.invalid && (userForm.get('selectedCustomerId')?.touched || submitted)" class="error-message" >
+            Customer is required
+           </div>
+          <div class="mt-3">
+            <label for="division" class="form-label">Division:</label>
+            <ng-select [(ngModel)]="selectedDivisionId" [items]="divisions" bindValue="dvid" bindLabel="divisionname"   (change)="onDivisionChange($event)"
+            [placeholder]="placeholder1" [searchable]="true" class="custom" formControlName="selectedDivisionId" [compareWith]="compareFn">
+            </ng-select>
+          </div>
+          <div *ngIf="userForm.get('selectedDivisionId')?.invalid && (userForm.get('selectedDivisionId')?.touched || submitted)" class="error-message">
+            Division is required
+           </div>
+
+           <hr>
+
+           <div class="mt-3">
+            <label for="product" class="form-label">Products:</label>
+            <ng-select [(ngModel)]="selectedProductId" [items]="products" bindValue="productid" bindLabel="name"   (change)="onProductChange($event)"
+            [placeholder]="placeholder2" [searchable]="true" class="custom"  [compareWith]="compareFn">
+            </ng-select>
+          </div>
+          <button class="btn btn-primary mt-3" (click)="addDataToGrid()">Add Data</button>
+          <div class="ag-theme-quartz ag-theme-acmecorp" style="height: 500px; width: 600px;">
+            <ag-grid-angular
+            style="width: 100%; height: 300px;"
+           
+            [rowData]="rowData"
+            [columnDefs]="columnDefs"   (gridReady)="onGridReady($event)">
+          </ag-grid-angular>
+          
+          
+          </div>
+         
+
+
+          <div class="mt-3">
+            <button type="submit" class="btn btn-primary" >Save</button>
           </div>
 
 
-
-
-
-
-
-
+        </div>
 
 
     </form>

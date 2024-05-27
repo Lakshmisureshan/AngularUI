@@ -22,6 +22,8 @@ import { AddSupplierComponent } from './Components/features/supplier/add-supplie
 import { NewRequirementComponent } from './Components/features/new-requirement/new-requirement.component';
 import { LoginComponent } from './Components/features/auth/login/login.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ListProductComponent } from './Components/features/Product/list-product/list-product.component';
+import { AgGridModule } from 'ag-grid-angular'; 
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
       AddSupplierComponent,
       NewRequirementComponent,
       LoginComponent,
+      ListProductComponent,
+     
     
   ],
   imports: [
@@ -48,7 +52,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
