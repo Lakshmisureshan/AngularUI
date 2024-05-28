@@ -1,5 +1,5 @@
 export interface AddCustomerRequirement{
- CRreferenceNo :string,
+    cRreferenceNo :string,
  customerid :number,
  divisionid:number
  Approvedby:number

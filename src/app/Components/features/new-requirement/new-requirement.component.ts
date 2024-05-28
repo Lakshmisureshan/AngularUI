@@ -9,6 +9,8 @@ import { Division } from '../division/Models/division.model';
 import { ProductService } from '../Product/Services/product.service';
 import { Product } from '../Product/Models/product.model';
 import { AgGridAngular } from 'ag-grid-angular';
+import { Router } from '@angular/router';
+import { AddCustomerRequirementDetail } from './Model/add-customerrequirementdetail.model';
 @Component({
   selector: 'app-new-requirement',
   templateUrl: './new-requirement.component.html',
@@ -18,7 +20,7 @@ export class NewRequirementComponent implements OnInit {
   userForm: FormGroup;
 
   model: AddCustomerRequirement;
-
+  model1: AddCustomerRequirementDetail;
   submitted = false;
 
   refereno ?:number|undefined;
@@ -38,30 +40,40 @@ export class NewRequirementComponent implements OnInit {
   placeholder2:string='Select Product';
   rowData: any[] = []; // Data to be displayed in the grid
 
-  columnDefs = [
-    { field: 'productid' },
-    { field: 'name' }
 
+
+  columnDefs = [
+    { headerName: 'Product ID', field: 'productId'},
+    { headerName: 'Product Name', field: 'name',  sortable: true, filter: true },
     // Add more columns as needed
   ];
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+defaultcolDef ={
+flex:1,
+minwidth:100
 
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
   gridApi: any;
-  constructor( private fb: FormBuilder, private newrequirementservice :NewrequirementService, private customerservice :CustomerService, private divionservice:DivisionService, private productservice:ProductService)
+  constructor( private fb: FormBuilder, private newrequirementservice :NewrequirementService, private customerservice :CustomerService, private divionservice:DivisionService, private productservice:ProductService, private router:Router)
   {
     this.userForm = this.fb.group({
      
@@ -74,11 +86,16 @@ export class NewRequirementComponent implements OnInit {
     });
 
 
+this.model1 ={
 
+crid:"",
+productid :0
+  
+}
 
 
     this.model = {
-      CRreferenceNo: '',
+      cRreferenceNo: "",
       customerid: 0,
       divisionid: 0,
       Approvedby: 0,
@@ -193,7 +210,7 @@ this.divionservice.gteAllDivisions().subscribe({
 
     this.selectedProductId= productid; // Update selectedCustomerId here
 
- 
+ console.log(this.selectedProductId);
 
    if (productid !== null && productid !== undefined && productid !== '') {
 
@@ -214,20 +231,22 @@ this.divionservice.gteAllDivisions().subscribe({
   }
 
 
-  addDataToGrid(): void {
+  addDataToGrid(event: Event): void {
+    alert(this.selectedProductId);
     if (this.selectedProductId) {
      
         const rowDataItem = {
-          productid: this.selectedProductId.productid,
+          productId: this.selectedProductId.productId,
           name: this.selectedProductId.name,
          
         };
 
-        alert(rowDataItem);
+        console.log("cbhfghfgh",rowDataItem);
         this.rowData.push(rowDataItem);
-        this.gridApi?.setRowData(this.rowData);
+        this.gridApi?.setGridOption('rowData', this.rowData);
       
     }
+    event.stopPropagation();
   }
 
 
@@ -237,19 +256,80 @@ this.divionservice.gteAllDivisions().subscribe({
 
 
 
-  onFormSubmit(){
-    this.submitted = true;
-    console.log(this.userForm.valid);
-    if (this.userForm.valid) {
-    this.model.CRreferenceNo = this.userForm.value.refno;
-console.log( this.model.CRreferenceNo );
-    this.model.customerid =this.selectedCustomerId.id;
+onFormSubmit(){
+this.submitted = true;
+if (this.userForm.valid) {
+ this.model.cRreferenceNo  = this.userForm.value.refno;
+this.model.customerid =this.selectedCustomerId.id;
 this.model.divisionid=this.selectedDivisionId.dvid;
 this.model.Date = this.userForm.value.Date;
-this.model.CRreferenceNo =this.userForm.value.refno;
-console.log(this.selectedDivisionId.dvid);
-console.log(this.model);
+this.model.approvedrejectedstatus = 1;
+this.model.customerRequirementStatusid =1
+this.model.Approvedby=1
+ }
+ alert(this.model);
+this.newrequirementservice.createcustomerrequirementheader(this.model)
+.subscribe({
+  next: (response) => {
+
+    alert(JSON.stringify(response));
+    var crid=response.cRreferenceNo;
+ alert(response.cRreferenceNo);
+ 
+   for (const rowDataItem of this.rowData) {
+    this.model1.productid =rowDataItem.productId;
+    this.model1.crid = crid; 
+
+    this.newrequirementservice.createcustomerrequirementDetail(this.model1)
+    .subscribe({
+      next: (detailResponse) => {
+        // Handle detail insertion response if needed
+        console.log("Detail inserted:", detailResponse);
+      },
+      error: (error) => {
+        // Handle error if detail insertion fails
+        console.error("Error inserting detail:", error);
+      }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
+    this.router.navigateByUrl('admin/categories');
   }
+});
+
+
+
+
+
+
+
 
 }
+}
+
+
