@@ -23,7 +23,8 @@ import { NewRequirementComponent } from './Components/features/new-requirement/n
 import { LoginComponent } from './Components/features/auth/login/login.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ListProductComponent } from './Components/features/Product/list-product/list-product.component';
-import { AgGridModule } from 'ag-grid-angular'; 
+import { AgGridModule } from 'ag-grid-angular';
+import { ListNewrequirementComponent } from './Components/features/new-requirement/list-customerrequirement/list-newrequirement/list-newrequirement.component'; 
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AgGridModule } from 'ag-grid-angular';
       NewRequirementComponent,
       LoginComponent,
       ListProductComponent,
+      ListNewrequirementComponent,
      
     
   ],
