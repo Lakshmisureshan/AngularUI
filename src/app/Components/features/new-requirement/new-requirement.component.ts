@@ -99,7 +99,7 @@ productid :0
       customerid: 0,
       divisionid: 0,
       Approvedby: 0,
-      approvedrejectedstatus:0,
+      approvedrejectedstatus:1,
       Date: new Date(),
       customerRequirementStatusid:1
     };

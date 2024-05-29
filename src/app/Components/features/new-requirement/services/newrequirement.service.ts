@@ -5,6 +5,7 @@ import { AddCustomerRequirement } from '../Model/add-customerrequirement.model';
 import { CustomerRequirement } from '../Model/customerrequirement.mode';
 import { AddCustomerRequirementDetail } from '../Model/add-customerrequirementdetail.model';
 import { CustomerRequirementDetail } from '../Model/customerrequirementdetail.model';
+import { GetCustomerRequirement } from '../Model/getNewcustomerRequirement.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,10 +31,10 @@ export class NewrequirementService {
   }
 
 
-getNewcustomerRequirementDetails():Observable<CustomerRequirement[]>
+getNewcustomerRequirementDetails():Observable<GetCustomerRequirement[]>
 {
 
-  return this.http.get<CustomerRequirement[]>('https://localhost:7124/api/CustomerRequirement/GetcustomerRequirementdetail');
+  return this.http.get<GetCustomerRequirement[]>('https://localhost:7124/api/CustomerRequirement/GetcustomerRequirementdetail');
 }
 
 }

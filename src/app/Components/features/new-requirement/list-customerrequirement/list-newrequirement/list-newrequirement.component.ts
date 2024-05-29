@@ -20,7 +20,10 @@ constructor(private newcustomrerequirementservice:NewrequirementService )
 }
 
 columnDefs = [
-  { headerName: 'crid', field: 'crid', sortable: true, filter: true, floatingFilter: true },
+  { headerName: 'CRID', field: 'crid', sortable: true, filter: true, floatingFilter: true },
+  { headerName: 'Customer', field: 'customername', sortable: true, filter: true, floatingFilter: true },
+  { headerName: 'Division', field: 'divisionname', sortable: true, filter: true, floatingFilter: true },
+  { headerName: 'Date', field: 'date', sortable: true, filter: true, floatingFilter: true },
   // Add more columns as needed
 ];
   rowData: any[] = [];
