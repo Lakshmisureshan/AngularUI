@@ -24,6 +24,7 @@ columnDefs = [
   { headerName: 'Customer', field: 'customername', sortable: true, filter: true, floatingFilter: true },
   { headerName: 'Division', field: 'divisionname', sortable: true, filter: true, floatingFilter: true },
   { headerName: 'Date', field: 'date', sortable: true, filter: true, floatingFilter: true },
+  { headerName: 'Status', field: 'statusname', sortable: true, filter: true, floatingFilter: true },
   // Add more columns as needed
 ];
   rowData: any[] = [];

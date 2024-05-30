@@ -33,7 +33,6 @@ export class NewrequirementService {
 
 getNewcustomerRequirementDetails():Observable<GetCustomerRequirement[]>
 {
-
   return this.http.get<GetCustomerRequirement[]>('https://localhost:7124/api/CustomerRequirement/GetcustomerRequirementdetail');
 }
 

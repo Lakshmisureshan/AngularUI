@@ -8,4 +8,5 @@ export interface GetCustomerRequirement{
     date :Date,
     approvedrejectedstatus:number,
     customerRequirementStatusid :number
+    statusname:string
     }
